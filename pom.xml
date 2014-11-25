@@ -42,6 +42,7 @@
     <java.minimum.version>1.7</java.minimum.version>
   </properties>
 
+  <!-- This configures the publication of jars to the S3 bucket. -->
   <distributionManagement>
     <repository>
       <id>maven-s3-release-repo</id>
@@ -54,6 +55,32 @@
       <url>s3://maven.mainstreethub.com/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
+
+  <!-- This configures the reading of jars from the S3 bucket. -->
+  <repositories>
+    <repository>
+      <id>maven-s3-release-repo</id>
+      <name>S3 Release Repository</name>
+      <url>s3://maven.mainstreethub.com/releases</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>maven-s3-snapshot-repo</id>
+      <name>S3 Release Repository</name>
+      <url>s3://maven.mainstreethub.com/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <build>
     <!-- These plugins take effect for all child poms of this one. -->
