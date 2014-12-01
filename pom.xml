@@ -151,9 +151,9 @@
     <extensions>
       <!-- Publish everything to S3 instead of a maven repo. -->
       <extension>
-        <groupId>org.springframework.build</groupId>
+        <groupId>com.mainstreethub.build</groupId>
         <artifactId>aws-maven</artifactId>
-        <version>5.0.0.RELEASE</version>
+        <version>5.0.0.RELEASE.MSH.1</version>
       </extension>
     </extensions>
   </build>
