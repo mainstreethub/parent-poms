@@ -47,12 +47,12 @@
     <repository>
       <id>maven-s3-release-repo</id>
       <name>S3 Release Repository</name>
-      <url>s3://maven.mainstreethub.com/releases</url>
+      <url>s3://artifacts.mainstreethub.com/maven/releases</url>
     </repository>
     <snapshotRepository>
       <id>maven-s3-snapshot-repo</id>
       <name>S3 Snapshot Repository</name>
-      <url>s3://maven.mainstreethub.com/snapshots</url>
+      <url>s3://artifacts.mainstreethub.com/maven/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -61,7 +61,7 @@
     <repository>
       <id>maven-s3-release-repo</id>
       <name>S3 Release Repository</name>
-      <url>s3://maven.mainstreethub.com/releases</url>
+      <url>s3://artifacts.mainstreethub.com/maven/releases</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -72,7 +72,7 @@
     <repository>
       <id>maven-s3-snapshot-repo</id>
       <name>S3 Release Repository</name>
-      <url>s3://maven.mainstreethub.com/snapshots</url>
+      <url>s3://artifacts.mainstreethub.com/maven/snapshots</url>
       <releases>
         <enabled>false</enabled>
       </releases>
