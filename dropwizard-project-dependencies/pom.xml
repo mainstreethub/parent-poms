@@ -37,6 +37,7 @@
     <mainstreethub.dynamodb.table.version>0.1.1</mainstreethub.dynamodb.table.version>
 
     <mainstreethub.environment.version>0.1.1</mainstreethub.environment.version>
+    <mainstreethub.hierarchical.metric.registry.version>0.1.0</mainstreethub.hierarchical.metric.registry.version>
     <mainstreethub.time.version>0.1.0</mainstreethub.time.version>
 
     <mockito.version>1.10.19</mockito.version>
@@ -60,7 +61,6 @@
           </exclusion>
         </exclusions>
       </dependency>
-
 
       <!-- JACKSON -->
       <dependency>
@@ -147,6 +147,11 @@
         <artifactId>time</artifactId>
         <version>${mainstreethub.time.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>hierarchical-metric-registry</artifactId>
+        <version>${mainstreethub.hierarchical.metric.registry.version}</version>
+      </dependency>
 
       <!-- RETROFIT -->
       <dependency>
@@ -212,7 +217,6 @@
       </dependency>
 
       <!-- SLF4j -->
-
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
