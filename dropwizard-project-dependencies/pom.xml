@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>dropwizard-project-parent</artifactId>
+    <groupId>com.mainstreethub</groupId>
+    <version>0.1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>dropwizard-project-dependencies</artifactId>
+  <packaging>pom</packaging>
+
+  <properties>
+    <dagger.version>2.0.1</dagger.version>
+
+    <dropwizard.version>0.8.4</dropwizard.version>
+    <dropwizard.api.key.bundle.version>0.8.4-1</dropwizard.api.key.bundle.version>
+    <dropwizard.metrics.datadog.ecs.version>0.1.0</dropwizard.metrics.datadog.ecs.version>
+    <dropwizard.template.config.version>1.2.0</dropwizard.template.config.version>
+    <dropwizard.version.bundle.version>0.8.4-1</dropwizard.version.bundle.version>
+
+    <guava.version>18.0</guava.version>
+
+    <jackson.api.version>2.5.0</jackson.api.version>
+    <jackson.version>2.5.1</jackson.version>
+    <jersey.version>2.21</jersey.version>
+
+    <javax.inject.version>1</javax.inject.version>
+
+    <junit.version>4.12</junit.version>
+
+    <mainstreethub.dynamodb.dropwizard.version>0.1.0</mainstreethub.dynamodb.dropwizard.version>
+    <mainstreethub.dynamodb.table.version>0.1.1</mainstreethub.dynamodb.table.version>
+
+    <mainstreethub.environment.version>0.1.1</mainstreethub.environment.version>
+    <mainstreethub.time.version>0.1.0</mainstreethub.time.version>
+
+    <mockito.version>1.10.19</mockito.version>
+
+    <retrofit.version>1.9.0</retrofit.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- JACKSON -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>${jackson.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-guava</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <!-- DAGGER -->
+      <dependency>
+        <groupId>com.google.dagger</groupId>
+        <artifactId>dagger</artifactId>
+        <version>${dagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.dagger</groupId>
+        <artifactId>dagger-compiler</artifactId>
+        <version>${dagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>${javax.inject.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+
+      <!-- DYNAMO -->
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dynamodb-dropwizard</artifactId>
+        <version>${mainstreethub.dynamodb.dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dynamodb-table</artifactId>
+        <version>${mainstreethub.dynamodb.table.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- MAIN STREET HUB -->
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>environment</artifactId>
+        <version>${mainstreethub.environment.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>time</artifactId>
+        <version>${mainstreethub.time.version}</version>
+      </dependency>
+
+      <!-- RETROFIT -->
+      <dependency>
+        <groupId>com.squareup.retrofit</groupId>
+        <artifactId>converter-jackson</artifactId>
+        <version>${retrofit.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.retrofit</groupId>
+        <artifactId>retrofit</artifactId>
+        <version>${retrofit.version}</version>
+      </dependency>
+
+      <!-- DROPWIZARD -->
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-auth</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.thomaskrille</groupId>
+        <artifactId>dropwizard-template-config</artifactId>
+        <version>${dropwizard.template.config.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-core</artifactId>
+        <version>${dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>javax.inject</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-testing</artifactId>
+        <version>${dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>javax.inject</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-api-key-bundle</artifactId>
+        <version>${dropwizard.api.key.bundle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-version-bundle</artifactId>
+        <version>${dropwizard.version.bundle.version}</version>
+      </dependency>
+
+      <!-- DATADOG -->
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dropwizard-metrics-datadog-ecs</artifactId>
+        <version>${dropwizard.metrics.datadog.ecs.version}</version>
+      </dependency>
+
+      <!-- TEST -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+        <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
+        <version>${jersey.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>javax.inject</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>
