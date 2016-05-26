@@ -13,13 +13,15 @@
   <packaging>pom</packaging>
 
   <properties>
-    <dagger.version>2.0.1</dagger.version>
+    <dagger.version>2.0.2</dagger.version>
 
-    <dropwizard.version>0.8.4</dropwizard.version>
-    <dropwizard.api.key.bundle.version>0.8.4-1</dropwizard.api.key.bundle.version>
+    <amazon.sdk.version>1.11.4</amazon.sdk.version>
+
+    <dropwizard.version>0.8.5</dropwizard.version>
+    <dropwizard.api.key.bundle.version>0.8.5</dropwizard.api.key.bundle.version>
     <dropwizard.metrics.datadog.ecs.version>0.1.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.template.config.version>1.2.0</dropwizard.template.config.version>
-    <dropwizard.version.bundle.version>0.8.4-1</dropwizard.version.bundle.version>
+    <dropwizard.version.bundle.version>0.8.5</dropwizard.version.bundle.version>
 
     <guava.version>18.0</guava.version>
 
@@ -40,10 +42,25 @@
     <mockito.version>1.10.19</mockito.version>
 
     <retrofit.version>1.9.0</retrofit.version>
+
+    <slf4j.version>1.7.10</slf4j.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- AMAZON -->
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-sqs</artifactId>
+        <version>${amazon.sdk.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
 
       <!-- JACKSON -->
       <dependency>
@@ -64,6 +81,11 @@
       <dependency>
         <groupId>com.fasterxml.jackson.datatype</groupId>
         <artifactId>jackson-datatype-guava</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jdk8</artifactId>
         <version>${jackson.version}</version>
       </dependency>
 
@@ -187,6 +209,19 @@
         <groupId>com.mainstreethub</groupId>
         <artifactId>dropwizard-metrics-datadog-ecs</artifactId>
         <version>${dropwizard.metrics.datadog.ecs.version}</version>
+      </dependency>
+
+      <!-- SLF4j -->
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
       </dependency>
 
       <!-- TEST -->
