@@ -350,6 +350,10 @@
           <executions>
             <execution>
               <configuration>
+
+                <!-- Always check for a newer version of the base image and download it  -->
+                <autoPull>always</autoPull>
+
                 <images>
                   <image>
                     <!-- Artifact Image-->
@@ -364,6 +368,10 @@
                         <port>8080</port>
                         <port>8081</port>
                       </ports>
+
+                      <labels>
+                        <com.mainstreethub.log-format>dropwizard</com.mainstreethub.log-format>
+                      </labels>
 
                       <entryPoint>
                         <arg>java</arg>
