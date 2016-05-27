@@ -52,6 +52,17 @@
       <!-- AMAZON -->
       <dependency>
         <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-dynamodb</artifactId>
+        <version>${amazon.sdk.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-sqs</artifactId>
         <version>${amazon.sdk.version}</version>
         <exclusions>
