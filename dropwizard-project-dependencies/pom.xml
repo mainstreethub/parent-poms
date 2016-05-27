@@ -99,6 +99,11 @@
         <artifactId>jackson-datatype-jdk8</artifactId>
         <version>${jackson.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-joda</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
 
       <!-- DAGGER -->
       <dependency>
@@ -219,6 +224,16 @@
         <artifactId>dropwizard-version-bundle</artifactId>
         <version>${dropwizard.version.bundle.version}</version>
       </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jackson</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jdbi</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
 
       <!-- DATADOG -->
       <dependency>
@@ -237,6 +252,14 @@
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
         <version>${slf4j.version}</version>
+      </dependency>
+
+      <!-- APACHE COMMONS -->
+
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.10</version>
       </dependency>
 
       <!-- TEST -->
