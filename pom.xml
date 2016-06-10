@@ -4,10 +4,10 @@
 
   <groupId>com.mainstreethub</groupId>
   <artifactId>parent-pom</artifactId>
-  <version>1.4-SNAPSHOT</version>
+  <version>1.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>MainStreetHub parent pom</name>
-  <description>The parent pom for all MainStreetHub projects.</description>
+  <name>Main Street Hub parent pom</name>
+  <description>The parent pom for all Main Street Hub projects.</description>
   <url>https://github.com/mainstreethub/parent-pom</url>
 
   <licenses>
@@ -21,7 +21,7 @@
     <developer>
       <name>Brandon Beck</name>
       <email>brandon.beck@mainstreethub.com</email>
-      <organization>MainStreetHub</organization>
+      <organization>Main Street Hub</organization>
       <organizationUrl>http://www.mainstreethub.com</organizationUrl>
     </developer>
   </developers>
@@ -39,10 +39,10 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- The minimum java version, children can override this if necessary. -->
-    <java.minimum.version>1.7</java.minimum.version>
+    <java.minimum.version>1.8</java.minimum.version>
   </properties>
 
-  <!-- This configures the publication of jars to the S3 bucket. -->
+  <!-- This configures the publication of jars to the S3 bucket by default. -->
   <distributionManagement>
     <repository>
       <id>maven-s3-release-repo</id>
@@ -143,7 +143,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.1</version>
         <configuration>
-          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <tagNameFormat>@{project.artifactId}-v@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
     </plugins>
@@ -157,4 +157,42 @@
       </extension>
     </extensions>
   </build>
+
+  <profiles>
+    <profile>
+      <id>open-source</id>
+      <build>
+        <plugins>
+          <!-- Publish artifacts to maven central instead of S3. -->
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.7</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>oss.sonatype.org</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>false</autoReleaseAfterClose> <!-- TODO: Change to true. -->
+            </configuration>
+          </plugin>
+
+          <!-- Sign artifacts with GPG. -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
