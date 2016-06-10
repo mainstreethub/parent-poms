@@ -10,14 +10,14 @@
 
   <groupId>com.mainstreethub</groupId>
   <artifactId>ecs-parent-pom</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
 
   <scm>
     <url>https://github.com/mainstreethub/parent-poms</url>
     <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
-    <tag>HEAD</tag>
+    <tag>ecs-parent-pom-v1.0.0</tag>
   </scm>
 
   <properties>
