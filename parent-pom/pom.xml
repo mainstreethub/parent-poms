@@ -4,11 +4,11 @@
 
   <groupId>com.mainstreethub</groupId>
   <artifactId>parent-pom</artifactId>
-  <version>1.4.1-SNAPSHOT</version>
+  <version>1.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Main Street Hub parent pom</name>
   <description>The parent pom for all Main Street Hub projects.</description>
-  <url>https://github.com/mainstreethub/parent-pom</url>
+  <url>https://github.com/mainstreethub/parent-poms</url>
 
   <licenses>
     <license>
@@ -27,9 +27,9 @@
   </developers>
 
   <scm>
-    <url>https://github.com/mainstreethub/parent-pom</url>
-    <connection>scm:git:git@github.com:mainstreethub/parent-pom</connection>
-    <developerConnection>scm:git:git@github.com:mainstreethub/parent-pom</developerConnection>
+    <url>https://github.com/mainstreethub/parent-poms</url>
+    <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
+    <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
@@ -145,6 +145,17 @@
         <configuration>
           <tagNameFormat>@{project.artifactId}-v@{project.version}</tagNameFormat>
         </configuration>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>perform</goal>
+            </goals>
+            <configuration>
+              <pomFileName>parent-pom/pom.xml</pomFileName>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
 
@@ -172,7 +183,7 @@
             <configuration>
               <serverId>oss.sonatype.org</serverId>
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>false</autoReleaseAfterClose> <!-- TODO: Change to true. -->
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
           </plugin>
 
