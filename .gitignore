@@ -10,15 +10,10 @@
 
 # Build outputs
 target/
+dependency-reduced-pom.xml
 
 # Vagrant outputs
 .vagrant
 
 # OS hidden files
 .DS_Store
-
-# Temporary Maven files
-dependency-reduced-pom.xml
-
-# Configuration files
-/config.yaml
