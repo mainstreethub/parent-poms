@@ -12,7 +12,7 @@
 
   <groupId>com.mainstreethub</groupId>
   <artifactId>dropwizard-parent-pom</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.8.5-1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -21,6 +21,31 @@
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
     <tag>HEAD</tag>
   </scm>
+
+  <properties>
+    <dropwizard.version>0.8.5</dropwizard.version>
+
+    <!--
+      These versions should remain consistent with the version of Dropwizard being specified.
+      Don't just update the version of Dropwizard above and not update the versions of the
+      bundles/dependencies.
+
+      Also don't add anything to this pom that isn't directly influenced by dropwizard.  The
+      idea is that these dependencies should only ever change versions when we upgrade to a
+      newer version of dropwizard.
+    -->
+    <dropwizard.api.key.bundle.version>0.8.5</dropwizard.api.key.bundle.version>
+    <dropwizard.configurable.assets.bundle.version>0.8.5</dropwizard.configurable.assets.bundle.version>
+    <dropwizard.metrics.datadog.ecs.version>0.1.0</dropwizard.metrics.datadog.ecs.version>
+    <dropwizard.redirect.bundle.version>0.8.5</dropwizard.redirect.bundle.version>
+    <dropwizard.template.config.version>1.2.0</dropwizard.template.config.version>
+    <dropwizard.version.bundle.version>0.8.5</dropwizard.version.bundle.version>
+    <dropwizard.webjars.bundle.version>0.8.5</dropwizard.webjars.bundle.version>
+    <guava.version>18.0</guava.version>
+    <jackson.api.version>2.5.0</jackson.api.version>
+    <jackson.version>2.5.1</jackson.version>
+    <slf4j.version>1.7.10</slf4j.version>
+  </properties>
 
   <build>
     <pluginManagement>
@@ -81,4 +106,262 @@
       </plugin>
     </plugins>
   </build>
+
+  <dependencyManagement>
+    <!-- Dependencies released as part of Dropwizard. -->
+    <dependencies>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-assets</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-auth</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-benchmarks</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-client</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-configuration</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-core</artifactId>
+        <version>${dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.glassfish.hk2.external</groupId>
+            <artifactId>javax.inject</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-db</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-example</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-forms</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-hibernate</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jackson</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jdbi</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jersey</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jetty</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-lifecycle</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-logging</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-metrics</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-metrics-ganglia</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-metrics-graphite</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-migrations</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-servlets</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-spdy</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-testing</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-util</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-validation</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-views</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-views-freemarker</artifactId>
+        <version>${dropwizard.version}</version>
+      </dependency>
+
+      <!-- Dependencies that Dropwizard uses. -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-guava</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jdk8</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-joda</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-parameter-names</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>log4j-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <!-- Main Street Hub authored bundles to use with Dropwizard. -->
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dropwizard-metrics-datadog-ecs</artifactId>
+        <version>${dropwizard.metrics.datadog.ecs.version}</version>
+      </dependency>
+
+      <!-- 3rd-party bundles to use with Dropwizard. -->
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-api-key-bundle</artifactId>
+        <version>${dropwizard.api.key.bundle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-configurable-assets-bundle</artifactId>
+        <version>${dropwizard.configurable.assets.bundle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-redirect-bundle</artifactId>
+        <version>${dropwizard.redirect.bundle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.thomaskrille</groupId>
+        <artifactId>dropwizard-template-config</artifactId>
+        <version>${dropwizard.template.config.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-version-bundle</artifactId>
+        <version>${dropwizard.version.bundle.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard-bundles</groupId>
+        <artifactId>dropwizard-webjars-bundle</artifactId>
+        <version>${dropwizard.webjars.bundle.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>
