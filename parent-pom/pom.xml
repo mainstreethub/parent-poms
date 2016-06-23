@@ -4,7 +4,7 @@
 
   <groupId>com.mainstreethub</groupId>
   <artifactId>parent-pom</artifactId>
-  <version>1.5.1-SNAPSHOT</version>
+  <version>1.5.1</version>
   <packaging>pom</packaging>
   <name>Main Street Hub parent pom</name>
   <description>The parent pom for all Main Street Hub projects.</description>
@@ -30,7 +30,7 @@
     <url>https://github.com/mainstreethub/parent-poms</url>
     <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
-    <tag>HEAD</tag>
+    <tag>parent-pom-v1.5.1</tag>
   </scm>
 
   <properties>
