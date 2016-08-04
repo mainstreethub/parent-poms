@@ -62,7 +62,7 @@
                 <image>
                   <build>
                     <labels>
-                      <com.mainstreethub.log-format>dropwizard</com.mainstreethub.log-format>
+                      <log_format>dropwizard</log_format>
                     </labels>
                     <ports>
                       <port>8080</port>
