@@ -9,14 +9,14 @@
   </parent>
 
   <artifactId>dropwizard-parent-pom</artifactId>
-  <version>0.8.5-3</version>
+  <version>0.8.5-4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
     <url>https://github.com/mainstreethub/parent-poms</url>
     <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
-    <tag>dropwizard-parent-pom-v0.8.5-3</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
