@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>dropwizard-parent-pom</artifactId>
-  <version>0.8.5-6-SNAPSHOT</version>
+  <version>0.8.5-4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -20,7 +20,7 @@
   </scm>
 
   <properties>
-    <dropwizard.version>0.8.5</dropwizard.version>
+    <dropwizard.version>1.0.2</dropwizard.version>
 
     <!--
       These versions should remain consistent with the version of Dropwizard being specified.
@@ -31,17 +31,17 @@
       idea is that these dependencies should only ever change versions when we upgrade to a
       newer version of dropwizard.
     -->
-    <dropwizard.api.key.bundle.version>0.8.5</dropwizard.api.key.bundle.version>
+    <dropwizard.api.key.bundle.version>1.0.0-SNAPSHOT</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>0.8.5</dropwizard.configurable.assets.bundle.version>
     <dropwizard.metrics.datadog.ecs.version>0.2.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.redirect.bundle.version>0.8.5</dropwizard.redirect.bundle.version>
-    <dropwizard.template.config.version>1.2.0</dropwizard.template.config.version>
+    <dropwizard.template.config.version>1.4.0</dropwizard.template.config.version>
     <dropwizard.version.bundle.version>0.8.5</dropwizard.version.bundle.version>
     <dropwizard.webjars.bundle.version>0.8.5</dropwizard.webjars.bundle.version>
-    <guava.version>18.0</guava.version>
-    <jackson.api.version>2.5.0</jackson.api.version>
-    <jackson.version>2.5.1</jackson.version>
-    <slf4j.version>1.7.10</slf4j.version>
+    <guava.version>19.0</guava.version>
+    <jackson.api.version>2.7.6</jackson.api.version>
+    <jackson.version>2.7.6</jackson.version>
+    <slf4j.version>1.7.21</slf4j.version>
   </properties>
 
   <build>
@@ -248,11 +248,6 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-servlets</artifactId>
-        <version>${dropwizard.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.dropwizard</groupId>
-        <artifactId>dropwizard-spdy</artifactId>
         <version>${dropwizard.version}</version>
       </dependency>
       <dependency>
