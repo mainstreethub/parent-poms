@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ecs-parent-pom</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -20,9 +20,9 @@
   </scm>
 
   <properties>
-    <docker.maven.plugin.version>0.15.7</docker.maven.plugin.version>
+    <docker.maven.plugin.version>0.16.2</docker.maven.plugin.version>
     <ecr.maven.plugin.version>0.1.0</ecr.maven.plugin.version>
-    <maven.release.plugin.version>2.5.1</maven.release.plugin.version>
+    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
 
     <!-- By default only build and publish Docker images when specifically asked. -->
     <skip.docker.image.build>true</skip.docker.image.build>
@@ -102,9 +102,13 @@
               <phase>deploy</phase>
               <goals>
                 <goal>push</goal>
+
+                <!-- Remove our image after pushing it to the repository. -->
+                <goal>remove</goal>
               </goals>
               <configuration>
                 <skip>${skip.docker.image.push}</skip>
+                <removeAll>true</removeAll>
                 <images>
                   <image>
                     <name>${docker.repository}/${docker.artifactId}:${project.version}</name>
