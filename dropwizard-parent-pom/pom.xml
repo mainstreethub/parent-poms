@@ -33,7 +33,7 @@
     -->
     <dropwizard.api.key.bundle.version>0.8.5</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>0.8.5</dropwizard.configurable.assets.bundle.version>
-    <dropwizard.metrics.datadog.ecs.version>0.1.0</dropwizard.metrics.datadog.ecs.version>
+    <dropwizard.metrics.datadog.ecs.version>0.2.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.redirect.bundle.version>0.8.5</dropwizard.redirect.bundle.version>
     <dropwizard.template.config.version>1.2.0</dropwizard.template.config.version>
     <dropwizard.version.bundle.version>0.8.5</dropwizard.version.bundle.version>
@@ -98,6 +98,33 @@
             </goals>
             <configuration>
               <pomFileName>dropwizard-parent-pom/pom.xml</pomFileName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.4.1</version>
+        <executions>
+          <execution>
+            <id>enforce-rules</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>commons-logging:*:*</exclude>
+                    <exclude>org.apache.logging.log4j:*:*</exclude>
+                    <exclude>log4j:*:*</exclude>
+                  </excludes>
+                  <searchTransitive>true</searchTransitive>
+                </bannedDependencies>
+              </rules>
+              <fail>true</fail>
             </configuration>
           </execution>
         </executions>
