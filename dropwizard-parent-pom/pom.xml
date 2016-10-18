@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>dropwizard-parent-pom</artifactId>
-  <version>0.8.5-4-SNAPSHOT</version>
+  <version>1.0.2-1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -31,7 +31,6 @@
       idea is that these dependencies should only ever change versions when we upgrade to a
       newer version of dropwizard.
     -->
-    <dropwizard.api.key.bundle.version>1.0.0-SNAPSHOT</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>0.8.5</dropwizard.configurable.assets.bundle.version>
     <dropwizard.metrics.datadog.ecs.version>0.2.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.redirect.bundle.version>0.8.5</dropwizard.redirect.bundle.version>
@@ -346,11 +345,6 @@
       </dependency>
 
       <!-- 3rd-party bundles to use with Dropwizard. -->
-      <dependency>
-        <groupId>io.dropwizard-bundles</groupId>
-        <artifactId>dropwizard-api-key-bundle</artifactId>
-        <version>${dropwizard.api.key.bundle.version}</version>
-      </dependency>
       <dependency>
         <groupId>io.dropwizard-bundles</groupId>
         <artifactId>dropwizard-configurable-assets-bundle</artifactId>
