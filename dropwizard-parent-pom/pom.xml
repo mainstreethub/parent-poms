@@ -31,8 +31,9 @@
       idea is that these dependencies should only ever change versions when we upgrade to a
       newer version of dropwizard.
     -->
+    <dropwizard.api.key.bundle.version>1.0.0</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>1.0.0</dropwizard.configurable.assets.bundle.version>
-    <dropwizard.metrics.datadog.ecs.version>0.2.0</dropwizard.metrics.datadog.ecs.version>
+    <dropwizard.metrics.datadog.ecs.version>0.3.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.redirect.bundle.version>1.0.0</dropwizard.redirect.bundle.version>
     <dropwizard.template.config.version>1.4.0</dropwizard.template.config.version>
     <dropwizard.version.bundle.version>1.0.0</dropwizard.version.bundle.version>
@@ -212,6 +213,11 @@
       </dependency>
 
       <!-- 3rd-party bundles to use with Dropwizard. -->
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dropwizard-api-key-bundle</artifactId>
+        <version>${dropwizard.api.key.bundle.version}</version>
+      </dependency>
       <dependency>
         <groupId>io.dropwizard-bundles</groupId>
         <artifactId>dropwizard-configurable-assets-bundle</artifactId>
