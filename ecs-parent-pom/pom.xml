@@ -20,7 +20,7 @@
   </scm>
 
   <properties>
-    <docker.maven.plugin.version>0.16.2</docker.maven.plugin.version>
+    <docker.maven.plugin.version>0.18.1</docker.maven.plugin.version>
     <ecr.maven.plugin.version>0.1.0</ecr.maven.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
 
@@ -28,6 +28,10 @@
     <skip.docker.image.build>true</skip.docker.image.build>
     <skip.docker.image.push>true</skip.docker.image.push>
 
+    <!-- Base image which the application is added to -->
+    <docker.image.base>docker.io/openjdk:8-jre-alpine</docker.image.base>
+    <!-- Name of the image -->
+    <docker.image.name>${docker.repository}/${docker.artifactId}:${project.version}</docker.image.name>
     <!-- The address of the MainStreetHub docker registry in ECR. -->
     <docker.repository>681582213432.dkr.ecr.us-east-1.amazonaws.com</docker.repository>
   </properties>
@@ -65,17 +69,17 @@
               <id>docker-image</id>
               <phase>package</phase>
               <goals>
-                <goal>build</goal>
+                <goal>build-nofork</goal>
               </goals>
               <configuration>
                 <!-- Always check for a newer version of the base image and download it.  -->
                 <autoPull>always</autoPull>
                 <images>
                   <image>
-                    <name>${docker.repository}/${docker.artifactId}:${project.version}</name>
+                    <name>${docker.image.name}</name>
                     <build>
                       <skip>${skip.docker.image.build}</skip>
-                      <from>docker.io/java:8-jre-alpine</from>
+                      <from>${docker.image.base}</from>
                       <tags>
                         <tag>latest</tag>
                       </tags>
@@ -85,6 +89,11 @@
                         <arg>-jar</arg>
                         <arg>maven/${project.build.finalName}.jar</arg>
                       </entryPoint>
+
+                      <labels>
+                        <app>${docker.artifactId}</app>
+                        <app_version>${project.version}</app_version>
+                      </labels>
 
                       <!-- Include the maven build artifact in the docker image. -->
                       <assembly>
