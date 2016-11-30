@@ -39,6 +39,12 @@ child pom.
 
 ### Releases
 
+#### 1.0.2-4
+
+* Upgraded parent pom to ecs-parent-pom version 1.1.1.
+* Added dropwizard-json-log-bundle 1.0.2-0
+* Rename log-format Docker label to archetype
+
 #### 1.0.2-3
 
 * Upgraded parent pom to ecs-parent-pom version 1.1.0.

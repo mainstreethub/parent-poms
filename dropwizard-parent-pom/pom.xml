@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.mainstreethub</groupId>
     <artifactId>ecs-parent-pom</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
   </parent>
 
   <artifactId>dropwizard-parent-pom</artifactId>
@@ -33,6 +33,7 @@
     -->
     <dropwizard.api.key.bundle.version>1.0.0</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>1.0.0</dropwizard.configurable.assets.bundle.version>
+    <dropwizard.json.log.bundle.version>1.0.2-0</dropwizard.json.log.bundle.version>
     <dropwizard.metrics.datadog.ecs.version>0.3.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.redirect.bundle.version>1.0.0</dropwizard.redirect.bundle.version>
     <dropwizard.template.config.version>1.4.0</dropwizard.template.config.version>
@@ -62,7 +63,7 @@
                 <image>
                   <build>
                     <labels>
-                      <log_format>dropwizard</log_format>
+                      <archetype>dropwizard</archetype>
                     </labels>
                     <ports>
                       <port>8080</port>
@@ -248,6 +249,11 @@
         <groupId>io.dropwizard-bundles</groupId>
         <artifactId>dropwizard-webjars-bundle</artifactId>
         <version>${dropwizard.webjars.bundle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dropwizard-json-log-bundle</artifactId>
+        <version>${dropwizard.json.log.bundle.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
