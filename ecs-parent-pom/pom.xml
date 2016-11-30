@@ -91,8 +91,8 @@
                       </entryPoint>
 
                       <labels>
-                        <app>${docker.artifactId}</app>
-                        <app_version>${project.version}</app_version>
+                        <application>${docker.artifactId}</application>
+                        <version>${project.version}</version>
                       </labels>
 
                       <!-- Include the maven build artifact in the docker image. -->

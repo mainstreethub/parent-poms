@@ -18,6 +18,10 @@ a main class.
 
 ### Releases
 
+#### 1.1.1
+* Updated label `app` to `application`
+* Updated label `app_version` to `version`
+
 #### 1.1.0
 
 * Updated base image from docker.io/java to docker.io/openjdk.
