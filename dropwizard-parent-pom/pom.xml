@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>dropwizard-parent-pom</artifactId>
-  <version>1.0.2-5-SNAPSHOT</version>
+  <version>1.0.5-1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -20,7 +20,7 @@
   </scm>
 
   <properties>
-    <dropwizard.version>1.0.2</dropwizard.version>
+    <dropwizard.version>1.0.5</dropwizard.version>
 
     <!--
       These versions should remain consistent with the version of Dropwizard being specified.
@@ -32,17 +32,13 @@
       newer version of dropwizard.
     -->
     <dropwizard.api.key.bundle.version>1.0.0</dropwizard.api.key.bundle.version>
-    <dropwizard.configurable.assets.bundle.version>1.0.0</dropwizard.configurable.assets.bundle.version>
+    <dropwizard.configurable.assets.bundle.version>1.0.5</dropwizard.configurable.assets.bundle.version>
     <dropwizard.json.log.bundle.version>1.0.2-0</dropwizard.json.log.bundle.version>
     <dropwizard.metrics.datadog.ecs.version>0.3.0</dropwizard.metrics.datadog.ecs.version>
-    <dropwizard.redirect.bundle.version>1.0.0</dropwizard.redirect.bundle.version>
+    <dropwizard.redirect.bundle.version>1.0.5</dropwizard.redirect.bundle.version>
     <dropwizard.template.config.version>1.4.0</dropwizard.template.config.version>
     <dropwizard.version.bundle.version>1.0.0</dropwizard.version.bundle.version>
     <dropwizard.webjars.bundle.version>1.0.0</dropwizard.webjars.bundle.version>
-    <guava.version>19.0</guava.version>
-    <jackson.api.version>2.7.6</jackson.api.version>
-    <jackson.version>2.7.6</jackson.version>
-    <slf4j.version>1.7.21</slf4j.version>
   </properties>
 
   <build>
@@ -144,66 +140,11 @@
         <scope>import</scope>
       </dependency>
 
-      <!-- Dependencies that Dropwizard uses. -->
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-annotations</artifactId>
-        <version>${jackson.api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.datatype</groupId>
-        <artifactId>jackson-datatype-guava</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.datatype</groupId>
-        <artifactId>jackson-datatype-jdk8</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.datatype</groupId>
-        <artifactId>jackson-datatype-joda</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.datatype</groupId>
-        <artifactId>jackson-datatype-jsr310</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
+      <!-- Jackson dependencies that we use but dropwizard doesn't. -->
       <dependency>
         <groupId>com.fasterxml.jackson.module</groupId>
         <artifactId>jackson-module-parameter-names</artifactId>
         <version>${jackson.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>${guava.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>jcl-over-slf4j</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>log4j-over-slf4j</artifactId>
-        <version>${slf4j.version}</version>
       </dependency>
 
       <!-- Main Street Hub authored bundles to use with Dropwizard. -->
