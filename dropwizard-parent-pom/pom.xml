@@ -40,8 +40,8 @@
     <dropwizard.version.bundle.version>1.0.0</dropwizard.version.bundle.version>
     <dropwizard.webjars.bundle.version>1.0.0</dropwizard.webjars.bundle.version>
 
-    <environment.bundle.version>0.3.0</environment.bundle.version>
-    <time.bundle.version>0.2.0</time.bundle.version>
+    <mainstreethub.environment.version>0.3.0</mainstreethub.environment.version>
+    <mainstreethub.time.version>0.2.0</mainstreethub.time.version>
   </properties>
 
   <build>
@@ -159,12 +159,12 @@
       <dependency>
         <groupId>com.mainstreethub</groupId>
         <artifactId>environment</artifactId>
-        <version>${environment.bundle.version}</version>
+        <version>${mainstreethub.environment.version}</version>
       </dependency>
       <dependency>
         <groupId>com.mainstreethub</groupId>
         <artifactId>time</artifactId>
-        <version>${time.bundle.version}</version>
+        <version>${mainstreethub.time.version}</version>
       </dependency>
 
       <!-- 3rd-party bundles to use with Dropwizard. -->
