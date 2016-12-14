@@ -34,11 +34,14 @@
     <dropwizard.api.key.bundle.version>1.0.0</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>1.0.5</dropwizard.configurable.assets.bundle.version>
     <dropwizard.json.log.bundle.version>1.0.2-0</dropwizard.json.log.bundle.version>
-    <dropwizard.metrics.datadog.ecs.version>0.3.0</dropwizard.metrics.datadog.ecs.version>
+    <dropwizard.metrics.datadog.ecs.version>0.4.0</dropwizard.metrics.datadog.ecs.version>
     <dropwizard.redirect.bundle.version>1.0.5</dropwizard.redirect.bundle.version>
     <dropwizard.template.config.version>1.4.0</dropwizard.template.config.version>
     <dropwizard.version.bundle.version>1.0.0</dropwizard.version.bundle.version>
     <dropwizard.webjars.bundle.version>1.0.0</dropwizard.webjars.bundle.version>
+
+    <mainstreethub.environment.version>0.3.0</mainstreethub.environment.version>
+    <mainstreethub.time.version>0.2.0</mainstreethub.time.version>
   </properties>
 
   <build>
@@ -152,6 +155,16 @@
         <groupId>com.mainstreethub</groupId>
         <artifactId>dropwizard-metrics-datadog-ecs</artifactId>
         <version>${dropwizard.metrics.datadog.ecs.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>environment</artifactId>
+        <version>${mainstreethub.environment.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>time</artifactId>
+        <version>${mainstreethub.time.version}</version>
       </dependency>
 
       <!-- 3rd-party bundles to use with Dropwizard. -->
