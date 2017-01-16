@@ -39,7 +39,7 @@ child pom.
 
 ### Releases
 
-#### 1.0.5-1
+#### 1.0.5-1 (Not released)
 
 * Upgraded to Dropwizard 1.0.5
 * Upgraded dropwizard-metrics-datadog-ecs to 0.4.0
