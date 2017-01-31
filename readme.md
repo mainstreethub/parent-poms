@@ -55,3 +55,11 @@ child pom.
 #### 1.0.2-3
 
 * Upgraded parent pom to ecs-parent-pom version 1.1.0.
+
+## dropwizard-scala-parent-pom
+This pom wraps the dropwizard-parent-pom for development in Scala
+
+### Releases
+
+#### 1.0.2-1
+* Initial release
