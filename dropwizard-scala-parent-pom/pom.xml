@@ -21,7 +21,6 @@
   </scm>
 
   <properties>
-    <dropwizard-scala.commons.version>0.0.1</dropwizard-scala.commons.version>
     <dropwizard-scala.version>1.0.0-2</dropwizard-scala.version>
     <json4s.version>3.5.0</json4s.version>
     <okhttp.version>3.3.0</okhttp.version>
@@ -121,16 +120,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>com.mainstreethub.dropwizard.scala</groupId>
-        <artifactId>commons</artifactId>
-        <version>${dropwizard-scala.commons.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.mainstreethub.dropwizard.scala</groupId>
-        <artifactId>aws</artifactId>
-        <version>${dropwizard-scala.commons.version}</version>
-      </dependency>
       <dependency>
         <groupId>com.datasift.dropwizard.scala</groupId>
         <artifactId>dropwizard-scala-core_${scala_major.version}</artifactId>
