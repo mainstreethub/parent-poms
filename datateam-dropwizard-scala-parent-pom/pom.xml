@@ -5,10 +5,10 @@
   <parent>
     <groupId>com.mainstreethub</groupId>
     <artifactId>dropwizard-scala-parent-pom</artifactId>
-    <version>1.0.2-1-SNAPSHOT</version>
+    <version>1.0.3-1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>datateam-parent-pom</artifactId>
+  <artifactId>datateam-dropwizard-scala-parent-pom</artifactId>
   <version>1.0.0-1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -43,7 +43,7 @@
               <goal>perform</goal>
             </goals>
             <configuration>
-              <pomFileName>data-team-parent-pom/pom.xml</pomFileName>
+              <pomFileName>datateam-dropwizard-scala-parent-pom/pom.xml</pomFileName>
             </configuration>
           </execution>
         </executions>

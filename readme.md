@@ -63,3 +63,13 @@ This pom wraps the dropwizard-parent-pom for development in Scala
 
 #### 1.0.2-1
 * Initial release
+
+#### 1.0.3-1
+* Moved non-essential dependencies out
+
+## datateam-dropwizard-scala-parent-pom
+
+### Releases
+
+#### 1.0.0-1
+* Initial release
