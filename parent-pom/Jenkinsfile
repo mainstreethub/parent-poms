@@ -23,9 +23,23 @@ node("java:8"){
   writeFile(file: ".gnupg/gpg.conf",
       text: gpg)
 
-  stage("Compile") {
-    sh "${mvn} -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
+
+  withCredentials([string(credentialsId: 'pubring.gpg', variable: 'TOKEN')]) {
+    writeFile(file: ".gnupg/pubring.gpg",
+        text: TOKEN)
   }
+
+  sh "ls -l"
+
+//  writeFile(file: ".gnupg/secring.gpg",
+//      text: gpg)
+//
+//  writeFile(file: ".gnupg/trustdb.gpg",
+//      text: gpg)
+//
+//  stage("Compile") {
+//    sh "${mvn} -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
+//  }
 
 //  stage("Test") {
 //    sh "${mvn} -Popen-source -Dresume=false -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare release:perform"
