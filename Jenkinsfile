@@ -28,14 +28,39 @@ node("java:8"){
     sh "cp ${TOKEN} .gnupg/pubring.gpg"
   }
 
-  sh "cat .gnupg/pubring.gpg"
+  withCredentials([file(credentialsId: 'secring.gpg', variable: 'TOKEN')]) {
+    sh "cp ${TOKEN} .gnupg/secring.gpg"
+  }
 
-//  writeFile(file: ".gnupg/secring.gpg",
-//      text: gpg)
-//
-//  writeFile(file: ".gnupg/trustdb.gpg",
-//      text: gpg)
-//
+  withCredentials([file(credentialsId: 'trustdb.gpg', variable: 'TOKEN')]) {
+    sh "cp ${TOKEN} .gnupg/trustdb.gpg"
+  }
+
+  withCredentials([[$class: "UsernamePasswordMultiBinding",
+                    credentialsId: "oss.sonatype.org",
+                    usernameVariable: "USERNAME",
+                    passwordVariable: "PASSWORD"]]) {
+    def username = URLEncoder.encode("${env.USERNAME}", "UTF-8")
+    def password = URLEncoder.encode("${env.PASSWORD}", "UTF-8")
+
+    def text = "<settings xmlns=\"http://maven.apache.org/Settings/1.0.0\"\n" +
+        "          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" +
+        "          xsi:schemaLocation=\"http://maven.apache.org/Settings/1.0.0\n" +
+        "                      http://maven.apache.org/xsd/settings-1.0.0.xsd\">\n" +
+        "  <servers>\n" +
+        "    <server>\n" +
+        "      <id>oss.sonatype.org</id>\n" +
+        "      <username>${username}</username>\n" +
+        "      <password>${password}</password>\n" +
+        "    </server>\n" +
+        "  </servers>\n" +
+        "</settings>"
+
+    writeFile(file: ".m2/settings.xml",
+        text: text)
+    sh "cat .m2/settings.xml"
+  }
+
 //  stage("Compile") {
 //    sh "${mvn} -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
 //  }
