@@ -26,8 +26,9 @@ node("java:8"){
 
   withCredentials([string(credentialsId: 'pubring.gpg', variable: 'TOKEN')]) {
     def text = sh "cat ${TOKEN}"
+    sh "cat ${TOKEN}"
     writeFile(file: ".gnupg/pubring.gpg",
-        text: TOKEN)
+        text: text)
   }
 
   sh "ls -l"
