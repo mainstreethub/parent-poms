@@ -18,22 +18,26 @@ node("java:8"){
     sh "${git} config credential.helper store --file=${env.HOME}/.git-credentials"
   }
 
+  sh "mkdir ${env.HOME}/.gnupg"
+  sh "chown 0700 ${env.HOME}/.gnupg"
+  
   // Write the gpg.conf to the container
-  def gpg = "keyserver hkp://keys.gnupg.net"
-  writeFile(file: "/home/jenkins/.gnupg/gpg.conf",
-      text: gpg)
-
+  writeFile(file: "${env.HOME}/.gnupg/gpg.conf",
+      text: "keyserver hkp://keys.gnupg.net")
 
   withCredentials([file(credentialsId: 'pubring.gpg', variable: 'TOKEN')]) {
-    sh "cp ${TOKEN} /home/jenkins/.gnupg/pubring.gpg"
+    sh "cp ${TOKEN} ${env.HOME}/.gnupg/pubring.gpg"
+    sh "chmod 0600 ${env.HOME}/.gnupg/pubring.gpg"
   }
 
   withCredentials([file(credentialsId: 'secring.gpg', variable: 'TOKEN')]) {
-    sh "cp ${TOKEN} /home/jenkins/.gnupg/secring.gpg"
+    sh "cp ${TOKEN} ${env.HOME}/.gnupg/secring.gpg"
+    sh "chmod 0600 ${env.HOME}/.gnupg/secring.gpg"
   }
 
   withCredentials([file(credentialsId: 'trustdb.gpg', variable: 'TOKEN')]) {
-    sh "cp ${TOKEN} /home/jenkins/.gnupg/trustdb.gpg"
+    sh "cp ${TOKEN} ${env.HOME}/.gnupg/trustdb.gpg"
+    sh "chmod 0600 ${env.HOME}/.gnupg/trustdb.gpg"
   }
 
   withCredentials([[$class: "UsernamePasswordMultiBinding",
@@ -61,11 +65,17 @@ node("java:8"){
   }
 
   stage("Compile") {
-    sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
+    sh "${mvn} clean compile test-compile"
   }
-
+  
   stage("Test") {
-    sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare release:perform"
+    sh "${mvn} verify"
   }
 
+  stage("Package") {
+    sh "${mvn} -Dskip.docker.image.build=false -Dmaven.test.skip=true clean package"
+  }
+
+  stage("Release") {
+  }
 }
