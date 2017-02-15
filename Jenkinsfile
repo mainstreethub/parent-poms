@@ -20,7 +20,7 @@ node("java:8"){
 
   sh "mkdir ${env.HOME}/.gnupg"
   sh "chmod 0700 ${env.HOME}/.gnupg"
-  
+
   // Write the gpg.conf to the container
   writeFile(file: "${env.HOME}/.gnupg/gpg.conf",
       text: "keyserver hkp://keys.gnupg.net")
@@ -67,7 +67,7 @@ node("java:8"){
   stage("Compile") {
     sh "${mvn} -f dropwizard-parent-pom/pom.xml clean compile test-compile"
   }
-  
+
   stage("Test") {
     sh "${mvn} -f dropwizard-parent-pom/pom.xml verify"
   }
@@ -77,5 +77,6 @@ node("java:8"){
   }
 
   stage("Release") {
+    sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -Dmaven.javadoc.skip=true -Darguments='-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true' release:clean release:prepare release:perform"
   }
 }
