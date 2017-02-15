@@ -3,6 +3,7 @@ node("java:8"){
   def mvn = tool("maven") + "/bin/mvn -B"
 
   checkout scm
+  sh "cd parent-pom"
 
   sh "${git} config user.email engineering+jenkins2@mainstreethub.com"
   sh "${git} config user.name jenkins"
