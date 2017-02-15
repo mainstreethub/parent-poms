@@ -28,7 +28,7 @@ node("java:8"){
     sh "cp ${TOKEN} .gnupg/pubring.gpg"
   }
 
-  sh "ls -l"
+  sh "cat .gnupg/pubring.gpg"
 
 //  writeFile(file: ".gnupg/secring.gpg",
 //      text: gpg)
