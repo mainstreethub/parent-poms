@@ -61,7 +61,7 @@ node("java:8"){
   }
 
   stage("Compile") {
-    sh "${mvn} -f parent-pom/pom.xml -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
+    sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
   }
 
 //  stage("Test") {
