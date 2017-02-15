@@ -45,6 +45,7 @@ child pom.
 * Upgraded dropwizard-metrics-datadog-ecs to 0.4.0
 * Added environment library, version 0.3.0
 * Added time library, version 0.2.0
+* Added dropwizard-config-testing library, version 0.1.0
 
 #### 1.0.2-4
 
@@ -61,11 +62,11 @@ This pom wraps the dropwizard-parent-pom for development in Scala
 
 ### Releases
 
-#### 1.0.2-1
-* Initial release
-
 #### 1.0.3-1
 * Moved non-essential dependencies out
+
+#### 1.0.2-1
+* Initial release
 
 ## datateam-dropwizard-scala-parent-pom
 
