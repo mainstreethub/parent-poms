@@ -40,6 +40,7 @@
     <dropwizard.version.bundle.version>1.0.0</dropwizard.version.bundle.version>
     <dropwizard.webjars.bundle.version>1.0.0</dropwizard.webjars.bundle.version>
 
+    <mainstreethub.dropwizard.config.testing.version>0.1.0</mainstreethub.dropwizard.config.testing.version>
     <mainstreethub.environment.version>0.3.0</mainstreethub.environment.version>
     <mainstreethub.time.version>0.2.0</mainstreethub.time.version>
   </properties>
@@ -151,6 +152,11 @@
       </dependency>
 
       <!-- Main Street Hub authored bundles to use with Dropwizard. -->
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dropwizard-config-testing</artifactId>
+        <version>${mainstreethub.dropwizard.config.testing.version}</version>
+      </dependency>
       <dependency>
         <groupId>com.mainstreethub</groupId>
         <artifactId>dropwizard-metrics-datadog-ecs</artifactId>

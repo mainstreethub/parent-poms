@@ -6,8 +6,8 @@ node("java:8") {
 
   sh "${git} config user.email engineering+jenkins2@mainstreethub.com"
   sh "${git} config user.name jenkins"
-  withCredentials([[$class          : "UsernamePasswordMultiBinding",
-                    credentialsId   : "github-http",
+  withCredentials([[$class: "UsernamePasswordMultiBinding",
+                    credentialsId: "github-http",
                     usernameVariable: "GIT_USERNAME",
                     passwordVariable: "GIT_PASSWORD"]]) {
     def username = URLEncoder.encode("${env.GIT_USERNAME}", "UTF-8")
@@ -40,8 +40,8 @@ node("java:8") {
     sh "chmod 0600 ${env.HOME}/.gnupg/trustdb.gpg"
   }
 
-  withCredentials([[$class          : "UsernamePasswordMultiBinding",
-                    credentialsId   : "oss.sonatype.org",
+  withCredentials([[$class: "UsernamePasswordMultiBinding",
+                    credentialsId: "oss.sonatype.org",
                     usernameVariable: "USERNAME",
                     passwordVariable: "PASSWORD"]]) {
     def username = URLEncoder.encode("${env.USERNAME}", "UTF-8")
