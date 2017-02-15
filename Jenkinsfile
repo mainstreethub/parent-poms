@@ -3,7 +3,6 @@ node("java:8"){
   def mvn = tool("maven") + "/bin/mvn -B"
 
   checkout scm
-  sh "cd parent-pom"
 
   sh "${git} config user.email engineering+jenkins2@mainstreethub.com"
   sh "${git} config user.name jenkins"
@@ -62,7 +61,7 @@ node("java:8"){
   }
 
   stage("Compile") {
-    sh "${mvn} -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
+    sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
   }
 
 //  stage("Test") {
