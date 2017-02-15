@@ -19,15 +19,7 @@ node("java:8"){
   }
 
   sh "mkdir ${env.HOME}/.gnupg"
-  sh "whoami"
-  sh "echo"
-  sh "ls -lah ${env.HOME}/.gnupg"
-  sh "echo"
-  sh "ls -lah ${env.HOME}"
-  sh "echo"
-  sh "env | sort"
-  sh "echo"
-  sh "chown 0700 ${env.HOME}/.gnupg"
+  sh "chmod 0700 ${env.HOME}/.gnupg"
   
   // Write the gpg.conf to the container
   writeFile(file: "${env.HOME}/.gnupg/gpg.conf",
