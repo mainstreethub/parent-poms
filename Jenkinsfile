@@ -20,20 +20,20 @@ node("java:8"){
 
   // Write the gpg.conf to the container
   def gpg = "keyserver hkp://keys.gnupg.net"
-  writeFile(file: ".gnupg/gpg.conf",
+  writeFile(file: "/home/jenkins/.gnupg/gpg.conf",
       text: gpg)
 
 
   withCredentials([file(credentialsId: 'pubring.gpg', variable: 'TOKEN')]) {
-    sh "cp ${TOKEN} .gnupg/pubring.gpg"
+    sh "cp ${TOKEN} /home/jenkins/.gnupg/pubring.gpg"
   }
 
   withCredentials([file(credentialsId: 'secring.gpg', variable: 'TOKEN')]) {
-    sh "cp ${TOKEN} .gnupg/secring.gpg"
+    sh "cp ${TOKEN} /home/jenkins/.gnupg/secring.gpg"
   }
 
   withCredentials([file(credentialsId: 'trustdb.gpg', variable: 'TOKEN')]) {
-    sh "cp ${TOKEN} .gnupg/trustdb.gpg"
+    sh "cp ${TOKEN} /home/jenkins/.gnupg/trustdb.gpg"
   }
 
   withCredentials([[$class: "UsernamePasswordMultiBinding",
