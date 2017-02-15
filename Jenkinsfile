@@ -81,6 +81,10 @@ stage("Release") {
   input 'Release to Sonatype?'
 
   node("java:8") {
+    def mvn = tool("maven") + "/bin/mvn -B"
+
+    checkout scm
+
     sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -Dmaven.javadoc.skip=true -Darguments='-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true' release:clean release:prepare release:perform"
   }
 }
