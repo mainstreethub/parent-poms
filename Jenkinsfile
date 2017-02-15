@@ -58,12 +58,11 @@ node("java:8"){
 
     writeFile(file: ".m2/settings.xml",
         text: text)
-    sh "cat .m2/settings.xml"
   }
 
-//  stage("Compile") {
-//    sh "${mvn} -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
-//  }
+  stage("Compile") {
+    sh "${mvn} -Popen-source -Dresume=false -DdryRun=true -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare"
+  }
 
 //  stage("Test") {
 //    sh "${mvn} -Popen-source -Dresume=false -Dmaven.javadoc.skip=true -Darguments=\"-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true\" release:clean release:prepare release:perform"
