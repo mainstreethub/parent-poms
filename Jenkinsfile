@@ -65,15 +65,15 @@ node("java:8"){
   }
 
   stage("Compile") {
-    sh "${mvn} clean compile test-compile"
+    sh "${mvn} -f dropwizard-parent-pom/pom.xml clean compile test-compile"
   }
   
   stage("Test") {
-    sh "${mvn} verify"
+    sh "${mvn} -f dropwizard-parent-pom/pom.xml verify"
   }
 
   stage("Package") {
-    sh "${mvn} -Dskip.docker.image.build=false -Dmaven.test.skip=true clean package"
+    sh "${mvn} -f dropwizard-parent-pom/pom.xml -Dskip.docker.image.build=false -Dmaven.test.skip=true clean package"
   }
 
   stage("Release") {
