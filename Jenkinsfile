@@ -1,4 +1,4 @@
-node("java:8"){
+node("java:8") {
   def git = tool("git")
   def mvn = tool("maven") + "/bin/mvn -B"
 
@@ -75,8 +75,12 @@ node("java:8"){
   stage("Package") {
     sh "${mvn} -f dropwizard-parent-pom/pom.xml -Dskip.docker.image.build=false -Dmaven.test.skip=true clean package"
   }
+}
 
-  stage("Release") {
+stage("Release") {
+  input 'Release to Sonatype?'
+
+  node("java:8") {
     sh "${mvn} -f dropwizard-parent-pom/pom.xml -Popen-source -Dresume=false -Dmaven.javadoc.skip=true -Darguments='-Popen-source -DskipTests=true -DskipITs=true -Dmaven.javadoc.skip=true' release:clean release:prepare release:perform"
   }
 }
