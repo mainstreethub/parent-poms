@@ -81,7 +81,7 @@ stage("Release") {
           "  </servers>\n" +
           "</settings>"
 
-      writeFile(file: ".m2/settings.xml",
+      writeFile(file: "${env.HOME}/.m2/settings.xml",
           text: text)
     }
 
