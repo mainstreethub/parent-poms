@@ -1,5 +1,4 @@
 node("java:8") {
-  def git = tool("git")
   def mvn = tool("maven") + "/bin/mvn -B"
 
   checkout scm
@@ -21,6 +20,7 @@ stage("Release") {
   input 'Release to Sonatype?'
 
   node("java:8") {
+    def git = tool("git")
     def mvn = tool("maven") + "/bin/mvn -B"
 
     checkout scm
