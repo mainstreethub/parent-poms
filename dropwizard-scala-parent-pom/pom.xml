@@ -22,6 +22,7 @@
 
   <properties>
     <dropwizard-scala.version>1.0.0-2</dropwizard-scala.version>
+    <dropwizard.json.log.bundle.version>1.0.2-0</dropwizard.json.log.bundle.version>
     <json4s.version>3.5.0</json4s.version>
     <okhttp.version>3.3.0</okhttp.version>
     <scala_major.version>2.11</scala_major.version>
@@ -188,6 +189,11 @@
             <artifactId>jackson-databind</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.mainstreethub</groupId>
+        <artifactId>dropwizard-json-log-bundle</artifactId>
+        <version>${dropwizard.json.log.bundle.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
