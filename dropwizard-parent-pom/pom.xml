@@ -23,13 +23,20 @@
     <dropwizard.version>1.0.5</dropwizard.version>
 
     <!--
+      This version needs to stay EXACTLY the same as the one that the Dropwizard BOM
+      specifies.  Unfortunately when you import a BOM you don't get its properties, only
+      its dependencies.
+    -->
+    <jackson.version>2.7.8</jackson.version>
+
+    <!--
       These versions should remain consistent with the version of Dropwizard being specified.
       Don't just update the version of Dropwizard above and not update the versions of the
       bundles/dependencies.
 
       Also don't add anything to this pom that isn't directly influenced by dropwizard.  The
-      idea is that these dependencies should only ever change versions when we upgrade to a
-      newer version of dropwizard.
+      idea is that in the absence of bug fixes these dependencies should only ever change
+      versions when we upgrade to a newer version of dropwizard.
     -->
     <dropwizard.api.key.bundle.version>1.0.0</dropwizard.api.key.bundle.version>
     <dropwizard.configurable.assets.bundle.version>1.0.5</dropwizard.configurable.assets.bundle.version>
