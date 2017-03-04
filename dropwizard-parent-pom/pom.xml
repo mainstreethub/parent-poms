@@ -56,37 +56,37 @@
     <pluginManagement>
       <plugins>
         <plugin>
-        <groupId>io.fabric8</groupId>
-        <artifactId>docker-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>docker-image</id>
-            <phase>package</phase>
-            <goals>
-              <goal>build-nofork</goal>
-            </goals>
-            <configuration>
-              <images>
-                <image>
-                  <build>
-                    <labels>
-                      <archetype>dropwizard</archetype>
-                    </labels>
-                    <ports>
-                      <port>8080</port>
-                      <port>8081</port>
-                    </ports>
-                    <cmd>
-                      <arg>server</arg>
-                      <arg>classpath://config.yaml</arg>
-                    </cmd>
-                  </build>
-                </image>
-              </images>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>docker-image</id>
+              <phase>package</phase>
+              <goals>
+                <goal>build-nofork</goal>
+              </goals>
+              <configuration>
+                <images>
+                  <image>
+                    <build>
+                      <labels>
+                        <archetype>dropwizard</archetype>
+                      </labels>
+                      <ports>
+                        <port>8080</port>
+                        <port>8081</port>
+                      </ports>
+                      <cmd>
+                        <arg>server</arg>
+                        <arg>classpath://config.yaml</arg>
+                      </cmd>
+                    </build>
+                  </image>
+                </images>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -143,6 +143,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-invoker-plugin</artifactId>
         <version>2.0.0</version>
+        <inherited>false</inherited>
         <configuration>
           <pom>test/pom.xml</pom>
           <properties>
