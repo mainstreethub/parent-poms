@@ -39,13 +39,14 @@ child pom.
 
 ### Releases
 
-#### 1.0.5-1 (Not released)
+#### 1.0.5-3
 
 * Upgraded to Dropwizard 1.0.5
 * Upgraded dropwizard-metrics-datadog-ecs to 0.4.0
 * Added environment library, version 0.3.0
 * Added time library, version 0.2.0
 * Added dropwizard-config-testing library, version 0.1.0
+* Added test to verify POM dependencies
 
 #### 1.0.2-4
 
