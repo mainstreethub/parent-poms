@@ -6,6 +6,12 @@ A maven parent pom to use for all Main Street Hub projects.  This parent pom
 is unique in that it stores build artifacts in Amazon S3 using the aws-maven
 extension instead of to a traditional maven repo like Sonatype or Artifactory.
 
+### Releases
+
+#### 1.6.0
+
+* Add dependency convergence check to maven enforcer
+
 ## ecs-parent-pom
 This pom adds the ability to easily build a Docker image from the primary
 artifact of a maven build.  This pom encapsulates all of the info necessary to
