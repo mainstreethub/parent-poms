@@ -16,11 +16,11 @@
     <url>https://github.com/mainstreethub/parent-poms</url>
     <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
-    <tag>ecs-parent-pom-v1.0.1</tag>
+    <tag>ecs-parent-pom-v1.2.0</tag>
   </scm>
 
   <properties>
-    <docker.maven.plugin.version>0.18.1</docker.maven.plugin.version>
+    <docker.maven.plugin.version>0.20.1</docker.maven.plugin.version>
     <ecr.maven.plugin.version>0.1.0</ecr.maven.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
 
@@ -69,7 +69,7 @@
               <id>docker-image</id>
               <phase>package</phase>
               <goals>
-                <goal>build-nofork</goal>
+                <goal>build</goal>
               </goals>
               <configuration>
                 <!-- Always check for a newer version of the base image and download it.  -->
