@@ -106,6 +106,7 @@
                   <requireJavaVersion>
                     <version>${java.minimum.version}</version>
                   </requireJavaVersion>
+                  <dependencyConvergence/>
                 </rules>
               </configuration>
             </execution>
