@@ -18,6 +18,9 @@ a main class.
 
 ### Releases
 
+#### 1.2.0
+* Upgraded `io.fabric8:docker-maven-plugin` to 0.20.1
+
 #### 1.1.1
 * Updated label `app` to `application`
 * Updated label `app_version` to `version`
