@@ -24,6 +24,9 @@ a main class.
 
 ### Releases
 
+#### 1.3.0
+* Upgraded parent POM, `com.mainstreethub:parent-pom`, to 1.6.0
+
 #### 1.2.0
 * Upgraded `io.fabric8:docker-maven-plugin` to 0.20.1
 
