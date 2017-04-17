@@ -51,6 +51,10 @@ child pom.
 
 ### Releases
 
+#### 1.0.5-5
+
+* Fixed issue with removed goal from `docker-maven-plugin`
+
 #### 1.0.5-4
 
 * Upgraded parent POM, `com.mainstreethub:ecs-parent-pom`, to 1.3.0
