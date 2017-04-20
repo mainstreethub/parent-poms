@@ -118,6 +118,7 @@
               <configuration>
                 <skip>${skip.docker.image.push}</skip>
                 <removeAll>true</removeAll>
+                <skipExtendedAuth/>
                 <images>
                   <image>
                     <name>${docker.repository}/${docker.artifactId}:${project.version}</name>
