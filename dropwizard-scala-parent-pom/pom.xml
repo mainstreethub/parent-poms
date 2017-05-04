@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>dropwizard-scala-parent-pom</artifactId>
-  <version>1.0.3-3-SNAPSHOT</version>
+  <version>1.0.3-3</version>
   <packaging>pom</packaging>
 
 
@@ -17,7 +17,7 @@
     <url>https://github.com/mainstreethub/parent-poms</url>
     <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
-    <tag>HEAD</tag>
+    <tag>dropwizard-scala-parent-pom-v1.0.3-3</tag>
   </scm>
 
   <properties>
