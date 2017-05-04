@@ -21,7 +21,7 @@
   </scm>
 
   <properties>
-    <dropwizard-scala.commons.version>0.0.5</dropwizard-scala.commons.version>
+    <dropwizard-scala.commons.version>0.0.6</dropwizard-scala.commons.version>
     <mysql-connector.version>5.1.38</mysql-connector.version>
     <mysql-junit4.version>0.2</mysql-junit4.version>
   </properties>
