@@ -9,14 +9,14 @@
   </parent>
 
   <artifactId>ecs-parent-pom</artifactId>
-  <version>1.3.2-SNAPSHOT</version>
+  <version>1.3.2</version>
   <packaging>pom</packaging>
 
   <scm>
     <url>https://github.com/mainstreethub/parent-poms</url>
     <connection>scm:git:git@github.com:mainstreethub/parent-poms</connection>
     <developerConnection>scm:git:git@github.com:mainstreethub/parent-poms</developerConnection>
-    <tag>ecs-parent-pom-v1.2.0</tag>
+    <tag>ecs-parent-pom-v1.3.2</tag>
   </scm>
 
   <properties>
