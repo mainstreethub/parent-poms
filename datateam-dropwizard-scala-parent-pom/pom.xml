@@ -23,7 +23,7 @@
   <properties>
     <dropwizard-scala.commons.version>0.0.6</dropwizard-scala.commons.version>
     <mysql-connector.version>5.1.38</mysql-connector.version>
-    <mysql-junit4.version>0.2</mysql-junit4.version>
+    <mysql-junit4.version>1.0.1</mysql-junit4.version>
   </properties>
 
   <build>
@@ -54,7 +54,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.groupon.mysql</groupId>
+        <groupId>com.mainstreethub.mysql</groupId>
         <artifactId>mysql-junit4</artifactId>
         <version>${mysql-junit4.version}</version>
         <scope>test</scope>
