@@ -21,11 +21,7 @@
   </scm>
 
   <properties>
-<<<<<<< Updated upstream
-    <dropwizard-scala.commons.version>0.0.6</dropwizard-scala.commons.version>
-=======
     <dropwizard-scala.commons.version>0.1.3</dropwizard-scala.commons.version>
->>>>>>> Stashed changes
     <mysql-connector.version>5.1.38</mysql-connector.version>
     <mysql-junit4.version>1.0.1</mysql-junit4.version>
   </properties>
